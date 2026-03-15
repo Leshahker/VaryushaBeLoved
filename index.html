@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Варюни ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ФОН (Всегда на экране) -->
+    <div id="universe">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+
+        <div id="jupiter-container">
+            <div id="planet"></div>
+            <div id="ring-front"></div>
+            <div class="orbit">
+                <!-- 20 эмодзи -->
+                <div class="icon">💖</div>
+                <div class="icon">🍓</div>
+                <div class="icon">💌</div>
+                <div class="icon">😘</div>
+                <div class="icon">🥰</div>
+                <div class="icon">✨</div>
+                <div class="icon">🌸</div>
+                <div class="icon">🧸</div>
+                <div class="icon">💕</div>
+                <div class="icon">🎀</div>
+                <div class="icon">🌷</div>
+                <div class="icon">💫</div>
+                <div class="icon">💗</div>
+                <div class="icon">🌺</div>
+                <div class="icon">💝</div>
+                <div class="icon">🪐</div>
+                <div class="icon">🍓</div>
+                <div class="icon">🥰</div>
+                <div class="icon">💘</div>
+                <div class="icon">💖</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ТЕКСТ ПРИГЛАШЕНИЯ (Исчезнет по клику) -->
+    <div id="intro-overlay">
+        <p id="prompt-text">Нажми на экранчик лапкой</p>
+    </div>
+
+    <!-- КНИГА (Появится поверх планеты) -->
+    <div id="book-container" style="display: none;">
+        <button id="prev-page-btn" class="nav-btn hidden">‹</button>
+
+        <div id="book">
+            <div class="spine-shadow"></div>
+
+            <!-- Разворот 1 — Главная -->
+            <div class="page cover-inside">
+                <h2>Самой прекрасной<br>девушке в галактике</h2>
+            </div>
+
+            <div class="page" id="page1" style="background-image: url('photo_2025-11-09_08-10-47.jpg');"></div>
+
+            <!-- Разворот 2 — Пазл -->
+            <div class="page cover-inside">
+                <h2>Собери воспоминание</h2>
+            </div>
+
+            <div class="page" id="pagePuzzle">
+                <div class="page-content">
+                    <div id="puzzle-container"></div>
+                    <p id="puzzle-success-message" class="hidden">
+                        Ты — та самая недостающая частичка моего мира!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Разворот 3 — Конец -->
+            <div class="page cover-inside">
+                <h2>❤️</h2>
+            </div>
+
+            <div class="page" id="pageEnd">
+                <div class="page-content final-message">
+                    <p>Люблю тебя, Варюня!</p>
+                    <p>Ты у меня самая любименькая.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <button id="next-page-btn" class="nav-btn">›</button>
+    </div>
+
+    <!-- Финальная анимация -->
+    <div id="final-animation-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

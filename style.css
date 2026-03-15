@@ -1,0 +1,107 @@
+/* Общие стили */
+body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+.hidden { display: none !important; }
+
+/* ФОН (Космос и Планета) */
+#universe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    
+    background-image: url('https://i.pinimg.com/originals/0c/7c/e7/0c7ce775ba64624db27678797f244d92.jpg');
+    background-size: cover; 
+    background-position: center; 
+    
+    z-index: 1; 
+}
+@keyframes move-twinkle-back { from {background-position:0 0;} to {background-position:-10000px 5000px;} }
+#stars, #stars2, #stars3 { position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; display: block; }
+#stars { background: transparent url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center; animation: move-twinkle-back 200s linear infinite; }
+#stars2 { background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center; animation: move-twinkle-back 150s linear infinite; }
+#stars3 { background: transparent url(http://www.script-tutorials.com/demos/360/images/clouds.png) repeat top center; animation: move-twinkle-back 100s linear infinite; }
+
+/* 3D-Планета */
+@keyframes spin-planet { from { background-position: 0% center; } to { background-position: 200% center; } }
+#jupiter-container { position: absolute; top: 50%; left: 50%; width: 600px; height: 600px; margin-top: -300px; margin-left: -300px; transform-style: preserve-3d; perspective: 1200px; }
+#planet { position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; margin-top: -150px; margin-left: -150px; background: url(photo_2026-01-14_13-11-15.jpg) repeat-x center center; background-size: 200% 100%; border-radius: 50%; box-shadow: inset -30px -15px 50px rgba(0,0,0,0.7), inset 15px 10px 30px rgba(255,255,255,0.2), 0 0 80px rgba(255, 165, 0, 0.7); animation: spin-planet 40s linear infinite; transform: translateZ(0); transform-style: preserve-3d; }
+#ring-front { position: absolute; top: 50%; left: 50%; width: 500px; height: 500px; margin-top: -250px; margin-left: -250px; border: 5px solid rgba(220, 200, 170, 0.7); border-radius: 50%; transform: rotateX(75deg); transform-style: preserve-3d; }
+.orbit { position: absolute; top: 50%; left: 50%; width: 500px; height: 500px; margin-top: -250px; margin-left: -250px; transform-style: preserve-3d; animation: spin-orbit 45s linear infinite; }
+@keyframes spin-orbit { from { transform: rotateX(75deg) rotateZ(0deg); } to { transform: rotateX(75deg) rotateZ(360deg); } }
+.icon { position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin-top: -20px; margin-left: -20px; text-align: center; line-height: 40px; font-size: 30px; animation: counter-spin 45s linear infinite; }
+
+/* Координаты эмодзи */
+.icon:nth-child(1)  { --offset: 0deg;   --neg-offset: 0deg;   animation: counter-spin 45s linear infinite, pulse-text 2s infinite; }
+.icon:nth-child(2)  { --offset: 18deg;  --neg-offset: -18deg; }
+.icon:nth-child(3)  { --offset: 36deg;  --neg-offset: -36deg; }
+.icon:nth-child(4)  { --offset: 54deg;  --neg-offset: -54deg; }
+.icon:nth-child(5)  { --offset: 72deg;  --neg-offset: -72deg; }
+.icon:nth-child(6)  { --offset: 90deg;  --neg-offset: -90deg; }
+.icon:nth-child(7)  { --offset: 108deg; --neg-offset: -108deg; }
+.icon:nth-child(8)  { --offset: 126deg; --neg-offset: -126deg; }
+.icon:nth-child(9)  { --offset: 144deg; --neg-offset: -144deg; }
+.icon:nth-child(10) { --offset: 162deg; --neg-offset: -162deg; animation: counter-spin 45s linear infinite, pulse-text 2s infinite; }
+.icon:nth-child(11) { --offset: 180deg; --neg-offset: -180deg; }
+.icon:nth-child(12) { --offset: 198deg; --neg-offset: -198deg; }
+.icon:nth-child(13) { --offset: 216deg; --neg-offset: -216deg; }
+.icon:nth-child(14) { --offset: 234deg; --neg-offset: -234deg; }
+.icon:nth-child(15) { --offset: 252deg; --neg-offset: -252deg; }
+.icon:nth-child(16) { --offset: 270deg; --neg-offset: -270deg; }
+.icon:nth-child(17) { --offset: 288deg; --neg-offset: -288deg; }
+.icon:nth-child(18) { --offset: 306deg; --neg-offset: -306deg; }
+.icon:nth-child(19) { --offset: 324deg; --neg-offset: -324deg; }
+.icon:nth-child(20) { --offset: 342deg; --neg-offset: -342deg; animation: counter-spin 45s linear infinite, pulse-text 2s infinite; }
+
+@keyframes counter-spin { from { transform: rotateZ(var(--offset)) translateY(-250px) rotateZ(var(--neg-offset)) rotateZ(0deg) rotateX(-75deg); } to { transform: rotateZ(var(--offset)) translateY(-250px) rotateZ(var(--neg-offset)) rotateZ(-360deg) rotateX(-75deg); } }
+@keyframes pulse-text { 0%, 100% { font-size: 30px; } 50% { font-size: 38px; } }
+
+/* ИНТЕРФЕЙС */
+#intro-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; display: flex; justify-content: center; align-items: flex-end; padding-bottom: 50px; }
+#prompt-text { color: #fff; font-size: 26px; text-shadow: 0 0 15px rgba(255,255,255,0.8); animation: pulse-text 2s infinite; font-family: 'Caveat', cursive; }
+
+/* === КРАСИВАЯ 3D КНИГА === */
+#book-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; perspective: 2000px; }
+
+/* Обложка книги */
+#book { width: 80vw; height: 65vh; max-width: 900px; max-height: 600px; position: relative; transform-style: preserve-3d; overflow: hidden;}
+#book::before { content: ''; position: absolute; top: -8px; bottom: -8px; left: -8px; right: -8px; background: #5c3a21; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 20px rgba(0,0,0,0.6); z-index: -2; }
+#book::after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: #fff9f0; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.3); z-index: -1; }
+
+/* Тень от переплета по центру */
+.spine-shadow { position: absolute; top: 0; bottom: 0; left: 50%; width: 60px; margin-left: -30px; background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%); z-index: 1000; pointer-events: none; }
+
+/* Страницы */
+.page { position: absolute; top: 0; width: 50%; height: 100%; background-color: #fff9f0; backface-visibility: hidden; transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1); display: flex; justify-content: center; align-items: center; background-size: cover; background-position: center; border: 1px solid #d3c2b0; overflow: hidden; }
+
+/* Заглушки для фото (если файлы еще не загружены) */
+.page[style*="background-image"] { background-color: #ffd1dc; color: #d17b88; font-family: 'Caveat', cursive; font-size: 24px; position: relative; }
+.page[style*="background-image"]::before { content: 'Место для красивого фото'; position: absolute; z-index: -1; text-align: center; width: 100%; }
+
+/* Левые и правые страницы */
+.page:nth-child(odd) { left: 0; transform-origin: right center; border-radius: 8px 0 0 8px; box-shadow: inset -5px 0 20px rgba(0,0,0,0.05); }
+.page:nth-child(even) { left: 50%; transform-origin: left center; border-radius: 0 8px 8px 0; box-shadow: inset 5px 0 20px rgba(0,0,0,0.05); }
+
+/* Контент внутри */
+.cover-inside { background-color: #f7e6d4; color: #8a5a44; font-family: 'Caveat', cursive; text-align: center; flex-direction: column; }
+.page-content { padding: 40px; text-align: center; width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.page-content h2 { font-size: 2.5em; font-family: 'Caveat', cursive; color: #583e25; margin-top: 0; }
+.final-message { font-family: 'Caveat', cursive; font-size: 3.5em; line-height: 1.2; color: #583e25; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+
+/* Кнопки */
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.1); color: white; border: 2px solid rgba(255, 255, 255, 0.3); font-size: 40px; cursor: pointer; width: 60px; height: 60px; border-radius: 50%; z-index: 1000; backdrop-filter: blur(5px); transition: 0.3s; }
+.nav-btn:hover { background-color: rgba(255, 255, 255, 0.3); border-color: #fff; }
+#prev-page-btn { left: 5%; }
+#next-page-btn { right: 5%; font-size: 30px; }
+
+/* Пазл */
+#puzzle-container { width: 300px; height: 300px; border: 2px dashed #bfa58a; position: relative; margin: 10px auto; }
+.puzzle-piece { width: 100px; height: 100px; background-image: url('images/puzzle-photo.jpg'); background-size: 300px 300px; background-color: #ffd1dc; border: 1px solid #fff; position: absolute; cursor: grab; transition: box-shadow 0.2s; display: flex; align-items: center; justify-content: center; }
+.puzzle-piece:active { cursor: grabbing; box-shadow: 0 10px 20px rgba(0,0,0,0.5); z-index: 100; transform: scale(1.05); }
+#puzzle-success-message { margin-top: 15px; font-size: 1.5em; color: #e85a70; font-family: 'Caveat', cursive; animation: fadeIn 1s; }
+
+/* Финальная анимация */
+#final-animation-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 9999; }
+.falling-symbol { position: absolute; top: -50px; font-size: 24px; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(105vh) rotate(360deg); } }
